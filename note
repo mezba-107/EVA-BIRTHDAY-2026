@@ -194,7 +194,7 @@
 
         <h1 class="title text-7xl md:text-8xl">Happy Birthday</h1>
 
-        <h2 class="text-5xl mt-6 font-bold text-pink-100">Dear Friend 💖</h2>
+        <h2 class="text-5xl mt-6 font-bold text-pink-100">Dear Love 💖</h2>
 
         <div class="glass mt-10 p-8">
           <p
@@ -211,36 +211,43 @@
 
     <script src="script.js"></script>
   </body>
-</html> 
+</html>
+
+
+
+htnl end hare 
+
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html,
 body {
-  font-family: "Poppins", sans-serif;
-
-  overflow: hidden;
-
-  background: #050816;
-
-  color: white;
+  width: 100%;
+  height: 100%;
 }
 
-/* MOBILE FIX */
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background: #050816;
+  color: white;
+  position: relative;
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
 
 @media (max-width: 768px) {
   html,
   body {
-    width: 100%;
-
-    height: 100%;
-
     overflow: hidden;
-
     position: fixed;
-
     touch-action: none;
   }
 
@@ -252,16 +259,15 @@ body {
     touch-action: pan-x;
   }
 }
-/* body {
-  font-family: "Poppins", sans-serif;
-  overflow: hidden;
-  background: #050816;
-  color: white;
-} */
+
+/* =========================
+   BACKGROUND
+========================= */
 
 .main-bg {
   position: fixed;
   inset: 0;
+
   background:
     radial-gradient(
       circle at 20% 20%,
@@ -312,6 +318,10 @@ body {
   }
 }
 
+/* =========================
+   PAGE
+========================= */
+
 .page {
   width: 100%;
   height: 100vh;
@@ -325,14 +335,18 @@ body {
   position: absolute;
   inset: 0;
 
-  transition: 1s;
+  transition: 1s ease;
 }
 
 .hidden-page {
   opacity: 0;
   pointer-events: none;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
+
+/* =========================
+   GLASS EFFECT
+========================= */
 
 .glass {
   background: rgba(255, 255, 255, 0.08);
@@ -340,7 +354,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
 
   backdrop-filter: blur(25px);
-
   -webkit-backdrop-filter: blur(25px);
 
   box-shadow:
@@ -350,13 +363,16 @@ body {
   border-radius: 35px;
 }
 
+/* =========================
+   TITLE
+========================= */
+
 .title {
   font-family: "Great Vibes", cursive;
 
   background: linear-gradient(to right, #ffffff, #f9a8d4, #c4b5fd, #ffffff);
 
   -webkit-background-clip: text;
-
   -webkit-text-fill-color: transparent;
 
   background-size: 300% 300%;
@@ -378,6 +394,10 @@ body {
   }
 }
 
+/* =========================
+   BUTTON
+========================= */
+
 .btn {
   position: relative;
 
@@ -389,7 +409,7 @@ body {
 
   font-weight: 700;
 
-  transition: 0.4s;
+  transition: 0.4s ease;
 
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
 
@@ -424,6 +444,10 @@ body {
   left: 120%;
 }
 
+/* =========================
+   FLOAT ICONS
+========================= */
+
 .float {
   animation: float 4s ease-in-out infinite;
 }
@@ -439,6 +463,10 @@ body {
   }
 }
 
+/* =========================
+   CONFETTI
+========================= */
+
 .confetti {
   position: fixed;
 
@@ -453,16 +481,18 @@ body {
 @keyframes fall {
   from {
     transform: translateY(-100vh) rotate(0deg);
-
     opacity: 1;
   }
 
   to {
     transform: translateY(100vh) rotate(720deg);
-
     opacity: 0;
   }
 }
+
+/* =========================
+   HEARTS
+========================= */
 
 .heart {
   position: absolute;
@@ -484,27 +514,41 @@ body {
   }
 }
 
-/* STACK SLIDER */
+/* =========================
+   POLAROID STACK SLIDER
+========================= */
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 
 .slider-container {
   position: relative;
 
-  width: 340px;
-  height: 450px;
+  width: 320px;
+  height: 430px;
 
   margin: auto;
+
+  perspective: 1200px;
 }
 
 .memory-slide {
   position: absolute;
-
   inset: 0;
-
-  border-radius: 35px;
 
   overflow: hidden;
 
-  transition: 0.8s ease;
+  border-radius: 25px;
+
+  background: #111;
+
+  border: 8px solid white;
+
+  transition: all 0.7s ease;
 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
 }
@@ -520,67 +564,118 @@ body {
   content: "";
 
   position: absolute;
-
   inset: 0;
 
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
 }
+
+/* =========================
+   MEMORY TEXT
+========================= */
 
 .memory-content {
   position: absolute;
 
-  bottom: 25px;
-  left: 25px;
+  bottom: 20px;
+  left: 20px;
 
   z-index: 5;
 }
 
 .memory-content h3 {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
 }
 
 .memory-content p {
   margin-top: 5px;
-
   color: #fbcfe8;
 }
 
-.active-card {
-  z-index: 5;
+/* =========================
+   STACK POSITIONS
+========================= */
 
-  transform: translateY(0) scale(1);
+.active-card {
+  z-index: 10;
+
+  transform: translateX(0) translateY(0) rotate(0deg) scale(1);
 
   opacity: 1;
 }
 
 .second-card {
-  z-index: 4;
+  z-index: 9;
 
-  transform: translateY(22px) scale(0.94);
+  transform: translateX(-20px) translateY(15px) rotate(-8deg) scale(0.95);
+
+  opacity: 0.9;
+}
+
+.third-card {
+  z-index: 8;
+
+  transform: translateX(20px) translateY(25px) rotate(10deg) scale(0.9);
 
   opacity: 0.75;
 }
 
-.third-card {
-  z-index: 3;
+.fourth-card {
+  z-index: 7;
 
-  transform: translateY(45px) scale(0.88);
+  transform: translateX(-30px) translateY(35px) rotate(-15deg) scale(0.85);
 
-  opacity: 0.45;
+  opacity: 0.55;
+}
+
+.fifth-card {
+  z-index: 6;
+
+  transform: translateX(30px) translateY(45px) rotate(15deg) scale(0.8);
+
+  opacity: 0.4;
 }
 
 .hidden-card {
   opacity: 0;
 
-  transform: translateY(70px) scale(0.8);
+  transform: scale(0.6);
 }
 
-::-webkit-scrollbar {
-  display: none;
+/* =========================
+   NAV BUTTON
+========================= */
+
+.nav-btn {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  font-size: 24px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
 }
 
-/* SLIDE HINT */
+.nav-btn:hover {
+  transform: scale(1.1);
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================
+   SLIDE HINT
+========================= */
 
 .slide-hint {
   margin-top: 25px;
@@ -591,9 +686,9 @@ body {
 
   opacity: 0.85;
 
-  animation: slideHint 2s ease-in-out infinite;
-
   letter-spacing: 1px;
+
+  animation: slideHint 2s ease-in-out infinite;
 }
 
 @keyframes slideHint {
@@ -615,17 +710,21 @@ body {
 }
 
 /* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
    MOBILE RESPONSIVE
 ========================= */
 
 @media (max-width: 768px) {
-  /* body {
-    overflow-y: auto;
-  } */
-
   .page {
-    height: auto;
     min-height: 100vh;
+    height: auto;
 
     padding: 25px 15px;
   }
@@ -636,51 +735,34 @@ body {
 
   .title {
     font-size: 55px !important;
-
     line-height: 1.1;
   }
-
-  /* PAGE 2 */
 
   #page2 .grid {
     grid-template-columns: 1fr;
   }
 
-  /* SLIDER */
-
   .slider-wrapper {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
+    gap: 8px;
   }
 
   .slider-container {
-    width: 260px;
-
-    height: 360px;
+    width: 240px;
+    height: 330px;
   }
 
   .memory-content h3 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .memory-content p {
-    font-size: 14px;
+    font-size: 13px;
   }
-
-  /* BUTTON */
 
   .btn {
     padding: 12px 26px;
-
     font-size: 14px;
   }
-
-  /* FINAL PAGE */
 
   #page4 h1 {
     font-size: 58px !important;
@@ -690,23 +772,29 @@ body {
     font-size: 32px !important;
   }
 
-  /* SLIDE HINT */
-
   .slide-hint {
     font-size: 13px;
-
     margin-top: 18px;
-
     padding: 0 10px;
   }
-
-  /* FLOAT ICONS */
 
   .float {
     font-size: 30px !important;
   }
+
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
 }
- function showPage(page) {
+
+
+
+css end here
+
+
+function showPage(page) {
   document.querySelectorAll(".page").forEach((el) => {
     el.classList.add("hidden-page");
   });
@@ -715,7 +803,6 @@ body {
 
   if (page === 4) {
     confetti();
-
     startTyping();
   }
 }
@@ -724,7 +811,6 @@ body {
 
 document.getElementById("startBtn").onclick = () => {
   showPage(2);
-
   confetti();
 };
 
@@ -734,17 +820,17 @@ function updateClock() {
   const now = new Date();
 
   const h = String(now.getHours()).padStart(2, "0");
-
   const m = String(now.getMinutes()).padStart(2, "0");
 
   document.getElementById("clock").innerText = `${h}:${m}`;
 }
 
 setInterval(updateClock, 1000);
-
 updateClock();
 
-/* CONFETTI */
+/* =========================
+   CONFETTI
+========================= */
 
 function confetti() {
   const colors = ["#8b5cf6", "#ec4899", "#06b6d4", "#f43f5e", "#facc15"];
@@ -770,7 +856,9 @@ function confetti() {
   }
 }
 
-/* FLOATING HEARTS */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 function createHearts() {
   const container = document.getElementById("hearts");
@@ -780,9 +868,9 @@ function createHearts() {
 
     heart.className = "heart";
 
-    heart.innerHTML = ["💖", "✨", "🎈", "💕", "🌸"][
-      Math.floor(Math.random() * 5)
-    ];
+    const emojis = ["💖", "✨", "🎈", "💕", "🌸"];
+
+    heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
 
     heart.style.left = Math.random() * 100 + "vw";
 
@@ -801,14 +889,12 @@ function createHearts() {
 createHearts();
 
 /* =========================
-   MANUAL MEMORY SLIDER
+   STACK PHOTO SLIDER
 ========================= */
 
 const slides = document.querySelectorAll(".memory-slide");
 
 let currentSlide = 0;
-
-/* UPDATE SLIDER */
 
 function updateSlider() {
   slides.forEach((slide) => {
@@ -831,15 +917,14 @@ function updateSlider() {
   }
 }
 
-/* NEXT SLIDE */
+/* NEXT */
 
 function nextSlide() {
   currentSlide = (currentSlide + 1) % slides.length;
-
   updateSlider();
 }
 
-/* PREVIOUS SLIDE */
+/* PREVIOUS */
 
 function prevSlide() {
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
@@ -847,7 +932,17 @@ function prevSlide() {
   updateSlider();
 }
 
+/* INITIAL LOAD */
+
 updateSlider();
+
+/* =========================
+   AUTO SLIDE
+========================= */
+
+// setInterval(() => {
+//   nextSlide();
+// }, 4000);
 
 /* =========================
    MOBILE SWIPE SUPPORT
@@ -857,34 +952,40 @@ let startX = 0;
 
 const slider = document.querySelector(".slider-container");
 
-slider.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
+if (slider) {
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
 
-slider.addEventListener("touchend", (e) => {
-  let endX = e.changedTouches[0].clientX;
+  slider.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
 
-  if (startX - endX > 50) {
-    nextSlide();
-  }
+    if (startX - endX > 50) {
+      nextSlide();
+    }
 
-  if (endX - startX > 50) {
-    prevSlide();
-  }
-});
+    if (endX - startX > 50) {
+      prevSlide();
+    }
+  });
+}
 
 /* =========================
    TYPING EFFECT
 ========================= */
 
-const message = "তোমার জন্মদিন তোমার জীবনের সবচেয়ে সুন্দর দিনগুলোর একটি হোক ✨";
+const message =
+  "তোমার জন্মদিন তোমার জীবনের সবচেয়ে সুন্দর দিনগুলোর একটি হোক ✨💖 সবসময় হাসিখুশি থাকো 🌸";
 
 let typingIndex = 0;
+let typingRunning = false;
 
 function startTyping() {
   const typingText = document.getElementById("typingText");
 
-  if (!typingText) return;
+  if (!typingText || typingRunning) return;
+
+  typingRunning = true;
 
   typingText.innerHTML = "";
 
@@ -897,6 +998,8 @@ function startTyping() {
       typingIndex++;
 
       setTimeout(typeLetter, 70);
+    } else {
+      typingRunning = false;
     }
   }
 

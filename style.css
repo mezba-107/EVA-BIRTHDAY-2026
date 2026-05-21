@@ -19,26 +19,113 @@ body {
 }
 
 /* =========================
-   MOBILE FIX
+   MOBILE RESPONSIVE FIX
 ========================= */
 
 @media (max-width: 768px) {
   html,
   body {
-    overflow: hidden;
-    position: fixed;
-    touch-action: none;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    touch-action: auto;
+  }
+
+  body {
+    padding-bottom: 40px;
   }
 
   .page {
-    overflow: hidden;
+    position: relative;
+
+    min-height: 100vh;
+    height: auto;
+
+    padding: 30px 15px;
+
+    overflow: visible;
+  }
+
+  .hidden-page {
+    display: none;
+  }
+
+  .glass {
+    width: 100%;
+    border-radius: 25px;
+  }
+
+  .title {
+    font-size: 52px !important;
+    line-height: 1.1;
+  }
+
+  #page2 .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* SLIDER */
+
+  .slider-wrapper {
+    gap: 8px;
   }
 
   .slider-container {
+    width: 240px;
+    height: 330px;
+
     touch-action: pan-x;
   }
-}
 
+  .memory-content h3 {
+    font-size: 20px;
+  }
+
+  .memory-content p {
+    font-size: 13px;
+  }
+
+  /* BUTTON */
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  /* FINAL PAGE */
+
+  #page4 h1 {
+    font-size: 52px !important;
+  }
+
+  #page4 h2 {
+    font-size: 30px !important;
+  }
+
+  /* SLIDE HINT */
+
+  .slide-hint {
+    font-size: 12px;
+    margin-top: 15px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  /* FLOAT ICONS */
+
+  .float {
+    font-size: 28px !important;
+  }
+
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+
+    font-size: 18px;
+  }
+}
 /* =========================
    BACKGROUND
 ========================= */
