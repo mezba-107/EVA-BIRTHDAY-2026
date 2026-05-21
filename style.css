@@ -1,0 +1,569 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background: #050816;
+  color: white;
+  position: relative;
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow: hidden;
+    position: fixed;
+    touch-action: none;
+  }
+
+  .page {
+    overflow: hidden;
+  }
+
+  .slider-container {
+    touch-action: pan-x;
+  }
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.main-bg {
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(168, 85, 247, 0.35),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(236, 72, 153, 0.35),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(59, 130, 246, 0.25),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #030712, #0f172a, #111827, #1e1b4b);
+
+  z-index: -5;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 80px 120px, #fff, transparent),
+    radial-gradient(1px 1px at 150px 60px, #fff, transparent),
+    radial-gradient(2px 2px at 220px 180px, #fff, transparent),
+    radial-gradient(1px 1px at 300px 100px, #fff, transparent);
+
+  background-size: 350px 250px;
+
+  opacity: 0.3;
+
+  animation: starMove 80s linear infinite;
+}
+
+@keyframes starMove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-400px);
+  }
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  position: absolute;
+  inset: 0;
+
+  transition: 1s ease;
+}
+
+.hidden-page {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.08);
+}
+
+/* =========================
+   GLASS EFFECT
+========================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  border-radius: 35px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+  font-family: "Great Vibes", cursive;
+
+  background: linear-gradient(to right, #ffffff, #f9a8d4, #c4b5fd, #ffffff);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-size: 300% 300%;
+
+  animation: shine 6s ease infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 15px 40px;
+
+  border-radius: 999px;
+
+  font-weight: 700;
+
+  transition: 0.4s ease;
+
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.35);
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.05);
+
+  box-shadow: 0 18px 45px rgba(236, 72, 153, 0.5);
+}
+
+.btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  transform: skewX(-25deg);
+
+  transition: 0.7s;
+}
+
+.btn:hover::before {
+  left: 120%;
+}
+
+/* =========================
+   FLOAT ICONS
+========================= */
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+  position: fixed;
+
+  width: 12px;
+  height: 12px;
+
+  z-index: 999;
+
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.heart {
+  position: absolute;
+
+  font-size: 22px;
+
+  opacity: 0.7;
+
+  animation: heartFloat 10s linear infinite;
+}
+
+@keyframes heartFloat {
+  from {
+    transform: translateY(100vh) scale(0.5);
+  }
+
+  to {
+    transform: translateY(-120vh) scale(1.5);
+  }
+}
+
+/* =========================
+   POLAROID STACK SLIDER
+========================= */
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.slider-container {
+  position: relative;
+
+  width: 320px;
+  height: 430px;
+
+  margin: auto;
+
+  perspective: 1200px;
+}
+
+.memory-slide {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  background: #111;
+
+  border: 8px solid white;
+
+  transition: all 0.7s ease;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.memory-slide img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.memory-slide::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+}
+
+/* =========================
+   MEMORY TEXT
+========================= */
+
+.memory-content {
+  position: absolute;
+
+  bottom: 20px;
+  left: 20px;
+
+  z-index: 5;
+}
+
+.memory-content h3 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.memory-content p {
+  margin-top: 5px;
+  color: #fbcfe8;
+}
+
+/* =========================
+   STACK POSITIONS
+========================= */
+
+.active-card {
+  z-index: 10;
+
+  transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+
+  opacity: 1;
+}
+
+.second-card {
+  z-index: 9;
+
+  transform: translateX(-20px) translateY(15px) rotate(-8deg) scale(0.95);
+
+  opacity: 0.9;
+}
+
+.third-card {
+  z-index: 8;
+
+  transform: translateX(20px) translateY(25px) rotate(10deg) scale(0.9);
+
+  opacity: 0.75;
+}
+
+.fourth-card {
+  z-index: 7;
+
+  transform: translateX(-30px) translateY(35px) rotate(-15deg) scale(0.85);
+
+  opacity: 0.55;
+}
+
+.fifth-card {
+  z-index: 6;
+
+  transform: translateX(30px) translateY(45px) rotate(15deg) scale(0.8);
+
+  opacity: 0.4;
+}
+
+.hidden-card {
+  opacity: 0;
+
+  transform: scale(0.6);
+}
+
+/* =========================
+   NAV BUTTON
+========================= */
+
+.nav-btn {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  font-size: 24px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.1);
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================
+   SLIDE HINT
+========================= */
+
+.slide-hint {
+  margin-top: 25px;
+
+  font-size: 15px;
+
+  color: #fbcfe8;
+
+  opacity: 0.85;
+
+  letter-spacing: 1px;
+
+  animation: slideHint 2s ease-in-out infinite;
+}
+
+@keyframes slideHint {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-8px);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .page {
+    min-height: 100vh;
+    height: auto;
+
+    padding: 25px 15px;
+  }
+
+  .glass {
+    border-radius: 25px;
+  }
+
+  .title {
+    font-size: 55px !important;
+    line-height: 1.1;
+  }
+
+  #page2 .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-wrapper {
+    gap: 8px;
+  }
+
+  .slider-container {
+    width: 240px;
+    height: 330px;
+  }
+
+  .memory-content h3 {
+    font-size: 20px;
+  }
+
+  .memory-content p {
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
+
+  #page4 h1 {
+    font-size: 58px !important;
+  }
+
+  #page4 h2 {
+    font-size: 32px !important;
+  }
+
+  .slide-hint {
+    font-size: 13px;
+    margin-top: 18px;
+    padding: 0 10px;
+  }
+
+  .float {
+    font-size: 30px !important;
+  }
+
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+}

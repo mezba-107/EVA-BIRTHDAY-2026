@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday ✨</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="main-bg"></div>
+
+    <div class="stars"></div>
+
+    <div id="hearts"></div>
+
+    <!-- PAGE 1 -->
+
+    <section id="page1" class="page">
+      <div
+        class="glass max-w-4xl w-full p-10 md:p-16 text-center relative overflow-hidden"
+      >
+        <div class="absolute top-5 left-5 text-5xl float">🎂</div>
+
+        <div class="absolute top-5 right-5 text-5xl float">✨</div>
+
+        <div class="absolute bottom-5 left-10 text-4xl float">🎈</div>
+
+        <div class="absolute bottom-5 right-10 text-4xl float">💖</div>
+
+        <h1 class="title text-7xl md:text-9xl leading-none">Happy Birthday</h1>
+
+        <p class="mt-6 text-xl text-pink-100">
+          A magical journey made with love ✨
+        </p>
+
+        <button id="startBtn" class="btn mt-10 text-white">
+          Start Journey 🎉
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+
+    <section id="page2" class="page hidden-page">
+      <div class="glass max-w-3xl w-full p-10 md:p-14">
+        <h2 class="title text-center text-6xl mb-10">Special Person 💖</h2>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="glass p-6 text-center">
+            <p class="text-pink-200 text-sm mb-2">NAME</p>
+
+            <h3 class="text-4xl font-bold text-pink-100">❤️Eva❤️</h3>
+          </div>
+
+          <div class="glass p-6 text-center">
+            <p class="text-violet-200 text-sm mb-2">AGE</p>
+
+            <h3 class="text-4xl font-bold text-violet-100">21</h3>
+          </div>
+
+          <div class="glass p-6 text-center">
+            <p class="text-cyan-200 text-sm mb-2">BIRTH DATE</p>
+
+            <h3 class="text-4xl font-bold text-cyan-100">01 Jan</h3>
+          </div>
+
+          <div class="glass p-6 text-center">
+            <p class="text-yellow-200 text-sm mb-2">TIME NOW</p>
+
+            <h3 id="clock" class="text-4xl font-bold text-yellow-100">00:00</h3>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-4 mt-10">
+          <button class="btn text-white" onclick="showPage(1)">← Back</button>
+
+          <button class="btn text-white" onclick="showPage(3)">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+
+    <section id="page3" class="page hidden-page">
+      <div
+        class="glass max-w-5xl w-full p-8 md:p-10 text-center relative overflow-hidden"
+      >
+        <div
+          class="absolute -top-24 -left-24 w-72 h-72 bg-pink-500/20 rounded-full blur-3xl"
+        ></div>
+
+        <div
+          class="absolute -bottom-24 -right-24 w-72 h-72 bg-violet-500/20 rounded-full blur-3xl"
+        ></div>
+
+        <div class="relative z-10">
+          <h2 class="title text-6xl md:text-7xl">Memory Gallery ✨</h2>
+
+          <p class="text-pink-100 mt-4 mb-10 text-lg">
+            Beautiful moments together forever 💖
+          </p>
+
+          <div class="slider-wrapper">
+            <button class="nav-btn" onclick="prevSlide()">❮</button>
+
+            <div class="slider-container">
+              <div class="memory-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop"
+                />
+
+                <div class="memory-content">
+                  <h3>Sweet Memories 💕</h3>
+
+                  <p>Every moment with you feels magical ✨</p>
+                </div>
+              </div>
+
+              <div class="memory-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop"
+                />
+
+                <div class="memory-content">
+                  <h3>Beautiful Smile 🌸</h3>
+
+                  <p>Your smile is priceless 💖</p>
+                </div>
+              </div>
+
+              <div class="memory-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?q=80&w=1200&auto=format&fit=crop"
+                />
+
+                <div class="memory-content">
+                  <h3>Lovely Time ✨</h3>
+
+                  <p>Moments we never forget 🎂</p>
+                </div>
+              </div>
+
+              <div class="memory-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200&auto=format&fit=crop"
+                />
+
+                <div class="memory-content">
+                  <h3>Forever Together 💝</h3>
+
+                  <p>Heart full of happiness 💕</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="nav-btn" onclick="nextSlide()">❯</button>
+          </div>
+
+          <!-- SLIDE TEXT -->
+
+          <div class="slide-hint">👈 Swipe / Slide to see more memories 👉</div>
+
+          <div class="flex justify-center gap-5 mt-12">
+            <button class="btn text-white" onclick="showPage(2)">← Back</button>
+
+            <button class="btn text-white" onclick="showPage(4)">
+              Final Wish →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+
+    <section id="page4" class="page hidden-page">
+      <div
+        class="glass max-w-3xl w-full p-10 md:p-16 text-center relative overflow-hidden"
+      >
+        <div class="absolute top-6 left-6 text-5xl float">🎉</div>
+
+        <div class="absolute top-6 right-6 text-5xl float">💝</div>
+
+        <h1 class="title text-7xl md:text-8xl">Happy Birthday</h1>
+
+        <h2 class="text-5xl mt-6 font-bold text-pink-100">Dear Love 💖</h2>
+
+        <div class="glass mt-10 p-8">
+          <p
+            id="typingText"
+            class="text-lg leading-9 text-pink-50 min-h-[120px]"
+          ></p>
+        </div>
+
+        <button class="btn text-white mt-10" onclick="showPage(1)">
+          Restart Journey 🎉
+        </button>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
