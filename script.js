@@ -182,7 +182,7 @@ const message = `Happy Birthday, My Love! 🎂❤️
 
 On this Special day i wan't to let u know how much u mean to me. You are my one of the best gift from Allah. Thank U for coming into my life and making it so beautiful. I Love u Mona 💖.
 
-Allah kache dua kori Allah tmk susto rakhuk, hashi khushi rakhuk, life a successful hao, tmr sob sopno puron hok and life a ja cao sob tmi pao. Allah'r kache aitai dua kori. Tmr life sundor hok.
+Allah kache dua kori Allah tmk shustho rakhuk, hashi khushi rakhuk, life a successful how, tmr sob sopno puron hok and life a ja cao sob tmi pao. Allah'r kache aitai dua kori. Tmr life sundor hok.
 
 Keep smiling, stay happy, take care of ur self and always stay by my side. And best of luck for ur beautiful future.
 
