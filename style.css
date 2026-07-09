@@ -579,9 +579,9 @@ body {
    SCROLLBAR
 ========================= */
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 /* =========================
    MOBILE RESPONSIVE
@@ -654,3 +654,36 @@ body {
     font-size: 20px;
   }
 } */
+
+@media (max-width: 768px) {
+  .message-box {
+    max-height: 260px;
+  }
+}
+
+.message-box {
+  max-height: 320px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: 20px;
+}
+
+.typing-text {
+  white-space: pre-wrap;
+  line-height: 1.9;
+  color: #fff;
+}
+
+/* Scrollbar সুন্দর করার জন্য */
+.message-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.message-box::-webkit-scrollbar-thumb {
+  background: #ec4899;
+  border-radius: 20px;
+}

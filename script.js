@@ -178,8 +178,15 @@ if (slider) {
    TYPING EFFECT
 ========================= */
 
-const message =
-  "তোমার জন্মদিন তোমার জীবনের সবচেয়ে সুন্দর দিনগুলোর একটি হোক ✨💖 সবসময় হাসিখুশি থাকো 🌸";
+const message = `Happy Birthday, My Love! 🎂❤️
+
+On this Special day i wan't to let u know how much u mean to me. You are my one of the best gift from Allah. Thank U for coming into my life and making it so beautiful. I Love u Mona 💖.
+
+Allah kache dua kori Allah tmk susto rakhuk, hashi khushi rakhuk, life a successful hao, tmr sob sopno puron hok and life a ja cao sob tmi pao. Allah'r kache aitai dua kori. Tmr life sundor hok.
+
+Keep smiling, stay happy, take care of ur self and always stay by my side. And best of luck for ur beautiful future.
+
+Again Happy Birthday Mona 💝 and I Love U Soooooooo Much 💗💓💖`;
 
 let typingIndex = 0;
 let typingRunning = false;
@@ -197,7 +204,16 @@ function startTyping() {
 
   function typeLetter() {
     if (typingIndex < message.length) {
-      typingText.innerHTML += message.charAt(typingIndex);
+      const ch = message.charAt(typingIndex);
+
+      if (ch === "\n") {
+        typingText.innerHTML += "<br>";
+      } else {
+        typingText.innerHTML += ch;
+      }
+
+      typingText.parentElement.scrollTop =
+        typingText.parentElement.scrollHeight;
 
       typingIndex++;
 
