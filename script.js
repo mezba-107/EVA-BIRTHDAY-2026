@@ -9,8 +9,12 @@ function showPage(page) {
     confetti();
     startTyping();
   }
-}
 
+  if (page === 5) {
+    confetti();
+    startLoveRain();
+  }
+}
 /* START BUTTON */
 
 document.getElementById("startBtn").onclick = () => {
@@ -180,7 +184,7 @@ if (slider) {
 
 const message = `Happy Birthday, My Love! 🎂❤️
 
-On this Special day i wan't to let u know how much u mean to me. You are my one of the best gift from Allah. Thank U for coming into my life and making it so beautiful. I Love u Mona 💖.
+On this Special day i want to let u know how much u mean to me. You are my one of the best gift from Allah. Thank U for coming into my life and making it so beautiful. I Love u Mona 💖.
 
 Allah kache dua kori Allah tmk shustho rakhuk, hashi khushi rakhuk, life a successful how, tmr sob sopno puron hok and life a ja cao sob tmi pao. Allah'r kache aitai dua kori. Tmr life sundor hok.
 
@@ -224,4 +228,76 @@ function startTyping() {
   }
 
   typeLetter();
+}
+
+// part of 5th page code
+
+function startLoveRain() {
+  const container = document.getElementById("loveRain");
+
+  container.innerHTML = "";
+
+  const items = [
+    "❤️",
+    "💖",
+    "💕",
+    "💞",
+    "💘",
+    "🥰",
+    "🌸",
+    "✨",
+    "💝",
+    "💌",
+    "😍",
+    "😘",
+    "💋",
+    "❤️ I Love You Mona ❤️",
+    "💕 Love You Jaan 💕",
+    "💖 I ❤️ U 💖",
+    "🥰 Forever Together 🥰",
+    "💞 My Love 💞",
+    "🌸 Miss You 🌸",
+  ];
+
+  const rain = setInterval(() => {
+    if (!document.getElementById("page5").classList.contains("hidden-page")) {
+      const e = document.createElement("div");
+
+      e.className = "loveEmoji";
+
+      const item = items[Math.floor(Math.random() * items.length)];
+
+      e.innerHTML = item;
+
+      e.style.left = Math.random() * 100 + "vw";
+
+      // যদি Text হয়
+      if (
+        item.includes("Love") ||
+        item.includes("❤️ U") ||
+        item.includes("Together") ||
+        item.includes("Miss")
+      ) {
+        e.style.fontSize = 16 + Math.random() * 10 + "px";
+        e.style.fontWeight = "700";
+        e.style.color = "#ffd6ec";
+        e.style.textShadow = "0 0 10px #ff4da6";
+        e.style.whiteSpace = "nowrap";
+      }
+      // যদি Emoji হয়
+      else {
+        e.style.fontSize = 25 + Math.random() * 35 + "px";
+      }
+
+      e.style.animationDuration = 4 + Math.random() * 4 + "s";
+
+      container.appendChild(e);
+
+      setTimeout(() => {
+        e.remove();
+      }, 8000);
+    } else {
+      clearInterval(rain);
+    }
+  }, 150);
 }

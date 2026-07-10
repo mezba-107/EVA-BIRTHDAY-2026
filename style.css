@@ -687,3 +687,84 @@ body {
   background: #ec4899;
   border-radius: 20px;
 }
+
+#loveRain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.love-center {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.love-title {
+  font-size: 100px;
+  color: #fff;
+  text-shadow: 0 0 20px #ff5ca8;
+}
+
+.love-name {
+  margin-top: 20px;
+  font-size: 60px;
+  color: #ffd2ea;
+}
+
+.loveEmoji {
+  position: fixed;
+  top: -80px;
+  user-select: none;
+  pointer-events: none;
+
+  animation: loveFall linear forwards;
+}
+
+@keyframes loveFall {
+  from {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(115vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.big-heart {
+  font-size: 90px;
+  margin: 35px 0;
+  animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  75% {
+    transform: scale(1.15);
+  }
+}
