@@ -1182,3 +1182,72 @@ body {
     font-size: 18px;
   }
 }
+
+/* ===============================
+   PAGE 4 FIX
+================================*/
+@media screen and (max-width: 430px) {
+  #page4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    padding: 20px 15px;
+    overflow-y: auto;
+  }
+
+  #page4 .glass {
+    width: 100%;
+    max-width: 380px;
+    padding: 22px !important;
+    margin: auto;
+  }
+
+  #page4 .title {
+    font-size: 42px !important;
+    line-height: 1.1;
+  }
+
+  #page4 h2 {
+    font-size: 28px !important;
+    margin-top: 12px;
+  }
+
+  /* Envelope */
+  .envelope {
+    width: 100%;
+    max-width: 300px;
+    height: 190px;
+    margin: 30px auto;
+  }
+
+  .paper {
+    padding: 18px;
+    font-size: 14px;
+  }
+
+  .typing-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .seal {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .envelope.open .letter {
+    transform: translate(-50%, -105px);
+  }
+
+  #page4 p {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  #page4 .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
