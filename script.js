@@ -18,7 +18,7 @@ function showPage(page) {
 
 const music = document.getElementById("bgMusic");
 
-music.volume = 0.5; // volume 50%
+music.volume = 0.4; // volume 40%
 
 music.playbackRate = 1.1;
 
