@@ -18,7 +18,9 @@ function showPage(page) {
 
 const music = document.getElementById("bgMusic");
 
-music.volume = 0.3; // volume 30%
+music.volume = 0.4; // volume 30%
+
+music.playbackRate = 1.1;
 
 document.getElementById("startBtn").onclick = () => {
   showPage(2);
