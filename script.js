@@ -7,7 +7,6 @@ function showPage(page) {
 
   if (page === 4) {
     confetti();
-    startTyping();
   }
 
   if (page === 5) {
@@ -178,6 +177,26 @@ if (slider) {
   });
 }
 
+let opened = false;
+
+function openLetter() {
+  if (opened) return;
+  opened = true;
+
+  const envelope = document.getElementById("envelope");
+
+  envelope.classList.add("open");
+
+  // Letter বের হওয়ার পর typing শুরু হবে
+  setTimeout(() => {
+    startTyping();
+  }, 900);
+
+  // শেষে Next button দেখাবে
+  setTimeout(() => {
+    document.getElementById("nextBtn").style.display = "inline-block";
+  }, 1800);
+}
 /* =========================
    TYPING EFFECT
 ========================= */
@@ -194,11 +213,11 @@ Again Happy Birthday Mona 💝 and I Love U Soooooooo Much 💗💓💖`;
 
 let typingIndex = 0;
 let typingRunning = false;
-
+let loveRainInterval = null;
 function startTyping() {
   const typingText = document.getElementById("typingText");
 
-  if (!typingText || typingRunning) return;
+  if (!typingText) return;
 
   typingRunning = true;
 
@@ -207,6 +226,11 @@ function startTyping() {
   typingIndex = 0;
 
   function typeLetter() {
+    if (document.getElementById("page4").classList.contains("hidden-page")) {
+      typingRunning = false;
+      return;
+    }
+
     if (typingIndex < message.length) {
       const ch = message.charAt(typingIndex);
 
@@ -237,6 +261,10 @@ function startLoveRain() {
 
   container.innerHTML = "";
 
+  if (loveRainInterval) {
+    clearInterval(loveRainInterval);
+  }
+
   const items = [
     "❤️",
     "💖",
@@ -259,45 +287,72 @@ function startLoveRain() {
     "🌸 Miss You 🌸",
   ];
 
-  const rain = setInterval(() => {
-    if (!document.getElementById("page5").classList.contains("hidden-page")) {
-      const e = document.createElement("div");
-
-      e.className = "loveEmoji";
-
-      const item = items[Math.floor(Math.random() * items.length)];
-
-      e.innerHTML = item;
-
-      e.style.left = Math.random() * 100 + "vw";
-
-      // যদি Text হয়
-      if (
-        item.includes("Love") ||
-        item.includes("❤️ U") ||
-        item.includes("Together") ||
-        item.includes("Miss")
-      ) {
-        e.style.fontSize = 16 + Math.random() * 10 + "px";
-        e.style.fontWeight = "700";
-        e.style.color = "#ffd6ec";
-        e.style.textShadow = "0 0 10px #ff4da6";
-        e.style.whiteSpace = "nowrap";
-      }
-      // যদি Emoji হয়
-      else {
-        e.style.fontSize = 25 + Math.random() * 35 + "px";
-      }
-
-      e.style.animationDuration = 4 + Math.random() * 4 + "s";
-
-      container.appendChild(e);
-
-      setTimeout(() => {
-        e.remove();
-      }, 8000);
-    } else {
-      clearInterval(rain);
+  loveRainInterval = setInterval(() => {
+    if (document.getElementById("page5").classList.contains("hidden-page")) {
+      clearInterval(loveRainInterval);
+      loveRainInterval = null;
+      return;
     }
+
+    const e = document.createElement("div");
+
+    e.className = "loveEmoji";
+
+    const item = items[Math.floor(Math.random() * items.length)];
+
+    e.innerHTML = item;
+
+    e.style.left = Math.random() * 100 + "vw";
+
+    if (
+      item.includes("Love") ||
+      item.includes("❤️ U") ||
+      item.includes("Together") ||
+      item.includes("Miss")
+    ) {
+      e.style.fontSize = 16 + Math.random() * 10 + "px";
+      e.style.fontWeight = "700";
+      e.style.color = "#ffd6ec";
+      e.style.textShadow = "0 0 10px #ff4da6";
+      e.style.whiteSpace = "nowrap";
+    } else {
+      e.style.fontSize = 25 + Math.random() * 35 + "px";
+    }
+
+    e.style.animationDuration = 4 + Math.random() * 4 + "s";
+
+    container.appendChild(e);
+
+    setTimeout(() => {
+      e.remove();
+    }, 8000);
   }, 150);
+}
+
+// for restart part
+
+function resetJourney() {
+  // Page 4 reset
+  opened = false;
+  typingIndex = 0;
+  typingRunning = false;
+
+  document.getElementById("typingText").innerHTML = "";
+  document.getElementById("envelope").classList.remove("open");
+  document.getElementById("nextBtn").style.display = "none";
+
+  // Page 3 slider reset
+  currentSlide = 0;
+  updateSlider();
+
+  // Love Rain reset
+  if (loveRainInterval) {
+    clearInterval(loveRainInterval);
+    loveRainInterval = null;
+  }
+
+  document.getElementById("loveRain").innerHTML = "";
+
+  // Back to first page
+  showPage(1);
 }

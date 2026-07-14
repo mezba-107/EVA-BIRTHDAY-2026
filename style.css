@@ -671,7 +671,9 @@ body {
 .typing-text {
   white-space: pre-wrap;
   line-height: 1.9;
-  color: #fff;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* Scrollbar সুন্দর করার জন্য */
@@ -780,4 +782,283 @@ body {
   height: auto;
   display: block;
   border-radius: 20px;
+}
+/* ==========================================
+   PREMIUM ENVELOPE
+========================================== */
+
+.envelope {
+  position: relative;
+  width: 480px;
+  height: 300px;
+  margin: 60px auto;
+  cursor: pointer;
+  perspective: 2500px;
+  filter: drop-shadow(0 35px 45px rgba(0, 0, 0, 0.45));
+}
+
+/* Glow */
+
+.envelope::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -25px;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 45px;
+  background: #ff4fa0;
+  filter: blur(35px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/*==========================
+  BACK
+==========================*/
+
+.back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    180deg,
+    #ffc0e2 0%,
+    #ff91cb 35%,
+    #ff69b5 70%,
+    #ff4f9f 100%
+  );
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 4px 10px rgba(255, 255, 255, 0.45),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.12),
+    0 15px 30px rgba(255, 70, 160, 0.25);
+
+  z-index: 1;
+}
+
+.back::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+}
+
+/*==========================
+ LEFT FOLD
+==========================*/
+
+.left-fold {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(145deg, #ffaad7, #ff63ae);
+
+  clip-path: polygon(0 0, 100% 55%, 100% 100%, 0 100%);
+
+  z-index: 4;
+}
+
+/*==========================
+ RIGHT FOLD
+==========================*/
+
+.right-fold {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(145deg, #ff5ba9, #ff87c2);
+
+  clip-path: polygon(0 55%, 100% 0, 100% 100%, 0 100%);
+
+  z-index: 4;
+}
+
+/*==========================
+ BOTTOM
+==========================*/
+
+.bottom-fold {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(180deg, #ff82bf, #ff4b9f);
+
+  clip-path: polygon(0 100%, 50% 52%, 100% 100%);
+
+  z-index: 5;
+
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+/*==========================
+ TOP FLAP
+==========================*/
+
+.flap {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 58%;
+
+  background: linear-gradient(180deg, #ffd0ea, #ff71b6);
+
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+  transform-origin: top;
+
+  transition: 0.9s ease;
+
+  z-index: 10;
+
+  box-shadow:
+    inset 0 3px 6px rgba(255, 255, 255, 0.45),
+    0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/*==========================
+ LETTER
+==========================*/
+
+.letter {
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  width: 92%;
+  height: 92%;
+
+  transform: translateX(-50%);
+
+  transition: 1s ease;
+
+  z-index: 2;
+}
+
+/*==========================
+ PAPER
+==========================*/
+
+.paper {
+  width: 100%;
+  height: 100%;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  overflow-y: auto;
+
+  color: #333;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+/*==========================
+ HEART SEAL
+==========================*/
+
+.seal {
+  position: absolute;
+
+  left: 50%;
+  top: 56%;
+
+  transform: translate(-50%, -50%);
+
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(180deg, #ffe8b5, #ffc96f);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 28px;
+
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.25),
+    inset 0 3px 5px rgba(255, 255, 255, 0.45);
+
+  z-index: 20;
+
+  transition: 0.4s;
+}
+
+/*==========================
+ OPEN
+==========================*/
+
+.envelope.open .flap {
+  transform: rotateX(-180deg);
+
+  z-index: 0;
+}
+
+.envelope.open .letter {
+  transform: translate(-50%, -170px);
+
+  z-index: 30;
+}
+
+.envelope.open .seal {
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(0.2);
+}
+
+/*==========================
+ MOBILE
+==========================*/
+
+@media (max-width: 768px) {
+  .envelope {
+    width: 300px;
+    height: 190px;
+    margin: 40px auto;
+  }
+
+  .seal {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .envelope.open .letter {
+    transform: translate(-50%, -110px);
+  }
 }

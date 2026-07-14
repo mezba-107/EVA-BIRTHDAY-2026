@@ -228,27 +228,51 @@
       </div>
     </section>
 
-    <!-- PAGE 4 -->
+    <!-- =========================
+     PAGE 4
+========================= -->
 
     <section id="page4" class="page hidden-page">
-      <div
-        class="glass max-w-3xl w-full p-10 md:p-16 text-center relative overflow-hidden"
-      >
-        <div class="absolute top-6 left-6 text-5xl float">🎉</div>
-
-        <div class="absolute top-6 right-6 text-5xl float">💝</div>
-
+      <div class="glass max-w-2xl w-full p-8 md:p-12 text-center">
         <h1 class="title text-7xl md:text-8xl">Happy Birthday</h1>
 
         <h2 class="text-5xl mt-6 font-bold text-pink-100">
           💖 My Dear Love 💖
         </h2>
 
-        <div class="glass mt-10 p-8 message-box">
-          <div id="typingText" class="typing-text"></div>
+        <!-- Premium Envelope -->
+
+        <div id="envelope" class="envelope" onclick="openLetter()">
+          <!-- Envelope Body -->
+          <div class="back"></div>
+
+          <!-- Letter -->
+          <div class="letter">
+            <div class="paper">
+              <div id="typingText" class="typing-text"></div>
+            </div>
+          </div>
+
+          <!-- Front Folds -->
+          <div class="left-fold"></div>
+          <div class="right-fold"></div>
+          <div class="bottom-fold"></div>
+
+          <!-- Top Flap -->
+          <div class="flap"></div>
+
+          <!-- Heart Seal -->
+          <div class="seal">❤</div>
         </div>
 
-        <button class="btn text-white mt-10" onclick="showPage(5)">
+        <p class="mt-6 text-pink-200 text-lg">✨💌 Click The Envelope 💌✨</p>
+
+        <button
+          id="nextBtn"
+          class="btn text-white mt-8"
+          onclick="showPage(5)"
+          style="display: none"
+        >
           One Last Thing ❤️
         </button>
       </div>
@@ -272,7 +296,7 @@
           />
         </div>
 
-        <button class="btn text-white mt-10" onclick="showPage(1)">
+        <button class="btn text-white mt-10" onclick="resetJourney()">
           Restart Journey 🎉
         </button>
       </div>
