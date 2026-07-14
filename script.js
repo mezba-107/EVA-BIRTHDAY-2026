@@ -14,11 +14,19 @@ function showPage(page) {
     startLoveRain();
   }
 }
-/* START BUTTON */
+/* START BUTTON + MUSIC */
+
+const music = document.getElementById("bgMusic");
+
+music.volume = 0.3; // volume 30%
 
 document.getElementById("startBtn").onclick = () => {
   showPage(2);
   confetti();
+
+  music.play().catch((error) => {
+    console.log("Music play blocked:", error);
+  });
 };
 
 /* CLOCK */
@@ -332,6 +340,10 @@ function startLoveRain() {
 // for restart part
 
 function resetJourney() {
+  // Music reset 🎵
+  music.pause();
+  music.currentTime = 0;
+
   // Page 4 reset
   opened = false;
   typingIndex = 0;
