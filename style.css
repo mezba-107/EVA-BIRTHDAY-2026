@@ -1062,3 +1062,123 @@ body {
     transform: translate(-50%, -110px);
   }
 }
+
+/* ===============================
+   PAGE 2 FIX
+================================*/
+@media screen and (max-width: 430px) {
+  #page2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    padding: 15px;
+    overflow-y: auto;
+  }
+
+  #page2 .glass {
+    width: 100%;
+    max-width: 360px;
+    padding: 18px !important;
+    margin: auto;
+  }
+
+  #page2 .title {
+    font-size: 36px !important;
+    margin-bottom: 18px;
+    line-height: 1.1;
+  }
+
+  #page2 .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #page2 h3 {
+    font-size: 24px !important;
+  }
+
+  #page2 .glass .glass {
+    padding: 16px !important;
+  }
+
+  #page2 .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  #page2 .flex {
+    margin-top: 20px;
+  }
+}
+/* ===============================
+   PAGE 3 FIX
+================================*/
+@media screen and (max-width: 430px) {
+  #page3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    padding: 20px 15px;
+    overflow-y: auto;
+  }
+
+  #page3 .glass {
+    width: 100%;
+    max-width: 380px; /* আগে 360px ছিল */
+    padding: 24px !important; /* আগে 20px ছিল */
+    margin: auto;
+  }
+
+  #page3 .title {
+    font-size: 44px !important;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  #page3 p {
+    font-size: 15px;
+    margin-bottom: 20px !important;
+  }
+
+  .slider-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .slider-container {
+    width: 240px; /* আগে 220px ছিল */
+    height: 335px; /* আগে 310px ছিল */
+  }
+
+  .memory-slide {
+    border-width: 6px;
+  }
+
+  .memory-content h3 {
+    font-size: 19px;
+  }
+
+  .memory-content p {
+    font-size: 13px;
+  }
+
+  .slide-hint {
+    margin-top: 16px;
+    font-size: 13px;
+  }
+
+  #page3 .btn {
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
